@@ -1,16 +1,94 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FastBox Preview</title>
     <link rel="stylesheet" href="/static/style.css">
+    <!-- Added modern meta tags -->
   </head>
   <body>
-    <h1>Preview</h1>
-    <iframe style="width:100%;height:400px"
-            sandbox="allow-scripts"
-            srcdoc="{{ code | replace('"', '&quot;') }}">
-    </iframe>
-    <hr>
-    <a href="/">Back</a>
+    <!-- Added header section for consistency -->
+    <header class="header">
+      <div class="container">
+        <div class="brand">
+          <h1 class="brand-title">
+            <span class="brand-icon">⚡</span>
+            FastBox
+          </h1>
+          <p class="brand-subtitle">Preview Mode</p>
+        </div>
+      </div>
+    </header>
+
+    <!-- Wrapped content in semantic main tag -->
+    <main class="main">
+      <div class="container">
+        <div class="preview-section">
+          <div class="section-header">
+            <h2 class="section-title">Live Preview</h2>
+            <p class="section-description">Your code rendered in real-time</p>
+          </div>
+
+          <!-- Enhanced iframe with better wrapper and controls -->
+          <div class="preview-wrapper">
+            <div class="preview-toolbar">
+              <div class="toolbar-left">
+                <span class="preview-indicator">
+                  <span class="preview-dot"></span>
+                  Live Preview
+                </span>
+              </div>
+              <div class="toolbar-right">
+                <button class="refresh-button" onclick="refreshPreview()">
+                  <span class="button-icon">↻</span>
+                  Refresh
+                </button>
+              </div>
+            </div>
+            
+            <iframe
+                id="previewFrame"
+                class="preview-frame"
+                sandbox="allow-scripts"
+                srcdoc='{{ code | safe }}'>
+            </iframe>
+          </div>
+
+          <!-- Enhanced navigation with better styling -->
+          <div class="preview-actions">
+            <a href="/" class="back-button">
+              <span class="button-icon">←</span>
+              Back to Editor
+            </a>
+            <div class="action-hints">
+              <span class="hint">Make changes in the editor and run again</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- Added footer for consistency -->
+    <footer class="footer">
+      <div class="container">
+        <p class="footer-text">Built with ❤️ for developers who love to experiment</p>
+      </div>
+    </footer>
+
+    <!-- Added JavaScript for preview interactions -->
+    <script>
+      function refreshPreview() {
+        const frame = document.getElementById('previewFrame');
+        frame.src = frame.src;
+      }
+      
+      // Add keyboard shortcut for going back
+      document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') {
+          window.location.href = '/';
+        }
+      });
+    </script>
   </body>
 </html>

@@ -1,17 +1,107 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
-    <title>FastBox</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FastBox - HTML Sandbox</title>
     <link rel="stylesheet" href="/static/style.css">
+    <!-- Added modern meta tags and enhanced title -->
   </head>
   <body>
+    <!-- Added header section with branding and description -->
+    <header class="header">
+      <div class="container">
+        <div class="brand">
+          <h1 class="brand-title">
+            <span class="brand-icon">⚡</span>
+            FastBox
+          </h1>
+          <p class="brand-subtitle">Lightning-fast HTML sandbox for rapid prototyping</p>
+        </div>
+      </div>
+    </header>
 
-    <h1>HTML Sandbox</h1>
+    <!-- Wrapped main content in semantic main tag with container -->
+    <main class="main">
+      <div class="container">
+        <div class="editor-section">
+          <div class="section-header">
+            <h2 class="section-title">Code Editor</h2>
+            <p class="section-description">Write your HTML, CSS, and JavaScript below</p>
+          </div>
+          
+          <form action="/preview" method="post" class="editor-form">
+            <div class="editor-wrapper">
+              <div class="editor-toolbar">
+                <div class="toolbar-left">
+                  <span class="file-indicator">
+                    <span class="file-dot"></span>
+                    index.html
+                  </span>
+                </div>
+                <div class="toolbar-right">
+                  <span class="line-count">Lines: <span id="lineCount">1</span></span>
+                </div>
+              </div>
+              <!-- Enhanced textarea with better attributes and placeholder -->
+              <textarea 
+                name="code" 
+                rows="15" 
+                cols="80" 
+                class="code-editor"
+                placeholder="Start coding your HTML here..."
+                spellcheck="false"
+                autocomplete="off"
+              ><h1>Hello World</h1>
+<p>Welcome to FastBox! Start building something amazing.</p>
+<style>
+  body { font-family: Arial, sans-serif; padding: 20px; }
+  h1 { color: #6366f1; }
+</style></textarea>
+            </div>
+            
+            <!-- Enhanced button with icon and better styling -->
+            <div class="form-actions">
+              <button type="submit" class="run-button">
+                <span class="button-icon">▶</span>
+                Run Code
+              </button>
+              <div class="form-hints">
+                <span class="hint">Press Ctrl+Enter to run</span>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </main>
 
-    <form action="/preview" method="post">
-      <textarea name="code" rows="15" cols="80"><h1>Hello World</h1></textarea><br>
-      <button type="submit">Run</button>
-    </form>
+    <!-- Added footer with additional information -->
+    <footer class="footer">
+      <div class="container">
+        <p class="footer-text">Built with ❤️ for developers who love to experiment</p>
+      </div>
+    </footer>
 
+    <!-- Added JavaScript for line counting and keyboard shortcuts -->
+    <script>
+      const textarea = document.querySelector('.code-editor');
+      const lineCountSpan = document.getElementById('lineCount');
+      
+      function updateLineCount() {
+        const lines = textarea.value.split('\n').length;
+        lineCountSpan.textContent = lines;
+      }
+      
+      textarea.addEventListener('input', updateLineCount);
+      textarea.addEventListener('keydown', function(e) {
+        if (e.ctrlKey && e.key === 'Enter') {
+          e.preventDefault();
+          document.querySelector('.editor-form').submit();
+        }
+      });
+      
+      // Initial line count
+      updateLineCount();
+    </script>
   </body>
 </html>

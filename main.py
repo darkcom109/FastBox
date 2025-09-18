@@ -18,7 +18,6 @@ app.mount("/static", StaticFiles(directory="static"), name="static")
 @app.get("/", response_class=HTMLResponse)
 def home(request: Request):
     return templates.TemplateResponse("index.html", {"request": request})
-    
 
 # This is the endpoint to receive form submission
 @app.post("/preview", response_class=HTMLResponse)
