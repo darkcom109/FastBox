@@ -1,9 +1,7 @@
 # FastBox
 
-A Quick Project Testing Out FastAPI
-
 ## 🚀 Features
-- Test out HTML + CSS code in this sandbox
+- Test out HTML + CSS code using this sandbox
 
 ---
 
