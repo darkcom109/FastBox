@@ -1,6 +1,6 @@
 # FastBox
 
-A quick project testing out FastAPI
+A Quick project Testing Out FastAPI
 ---
 
 ## 🚀 Features
