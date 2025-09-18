@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>FastBox Preview</title>
+    <link rel="stylesheet" href="/static/style.css">
+  </head>
+  <body>
+    <h1>Preview</h1>
+    <iframe style="width:100%;height:400px"
+            sandbox="allow-scripts"
+            srcdoc="{{ code | replace('"', '&quot;') }}">
+    </iframe>
+    <hr>
+    <a href="/">Back</a>
+  </body>
+</html>
