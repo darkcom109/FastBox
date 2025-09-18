@@ -1,6 +1,6 @@
 # FastBox
 
-<hr>
+<br>
 ## 🚀 Features
 - Test out HTML + CSS code using this sandbox
 
